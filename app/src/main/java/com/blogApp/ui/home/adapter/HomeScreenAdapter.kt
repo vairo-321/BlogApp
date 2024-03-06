@@ -2,6 +2,7 @@ package com.blogApp.ui.home.adapter
 
 import android.content.Context
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.blogApp.core.BaseViewHolder
@@ -35,6 +36,11 @@ class HomeScreenAdapter(private val postList: List<Post>): RecyclerView.Adapter<
             Glide.with(context).load(item.post_image).centerCrop().into(binding.postImage)
             Glide.with(context).load(item.profile_picture).centerCrop().into(binding.profilePicture)
             binding.txtProfileName.text = item.profile_name
+            if (item.post_description.isEmpty()){
+                binding.postDescription.visibility = View.GONE
+            }else{
+                binding.postDescription.text = item.post_description
+            }
             binding.postTimestamp.text = "2 Horas"  //item.postTimestamp.toString()
         }
     }
