@@ -1,5 +1,6 @@
 package com.blogApp.data.remote.auth
 
+import android.graphics.Bitmap
 import com.blogApp.data.model.User
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
@@ -20,6 +21,13 @@ class AuthDataSource {
             FirebaseFirestore.getInstance().collection("users").document(uid).set(User(email, username, "FotoURL.png"))
         }
         return authResult.user
+    }
+
+    suspend fun updateUserProfile(imageBitmap: Bitmap, username: String){
+
+
+
+
     }
 
 
