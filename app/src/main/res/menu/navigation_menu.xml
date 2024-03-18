@@ -8,16 +8,18 @@
         />
 
     <item
-        android:id="@+id/profileFragment"
-        android:title="Profile"
-        android:icon="@drawable/ic_baseline_profile_24"
+        android:id="@+id/cameraFragment"
+        android:title="Add photo"
+        android:icon="@drawable/ic_baseline_add_a_photo_24_opaco"
         />
 
     <item
-        android:id="@+id/cameraFragment"
-        android:title="Take picture"
-        android:icon="@drawable/ic_baseline_camera_alt_24"
+        android:id="@+id/profileFragment"
+        android:title="Profile"
+        android:icon="@drawable/ic_baseline_person_24"
         />
+
+
 
 
 
