@@ -9,7 +9,6 @@ import com.google.firebase.auth.UserProfileChangeRequest
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.storage.FirebaseStorage
 import kotlinx.coroutines.tasks.await
-import java.io.ByteArrayInputStream
 import java.io.ByteArrayOutputStream
 
 class AuthDataSource {
@@ -20,10 +19,10 @@ class AuthDataSource {
         return authResult.user
     }
 
-    suspend fun signUp(email: String, password: String, username: String): FirebaseUser? {
+    suspend fun signUp(email: String, password: String, completeName: String): FirebaseUser? {
         val authResult = FirebaseAuth.getInstance().createUserWithEmailAndPassword(email, password).await()
         authResult.user?.uid?.let {uid ->
-            FirebaseFirestore.getInstance().collection("users").document(uid).set(User(email, username, "FotoURL.png"))
+            FirebaseFirestore.getInstance().collection("users").document(uid).set(User(email, completeName))
         }
         return authResult.user
     }

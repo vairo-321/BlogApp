@@ -11,7 +11,7 @@ import com.google.firebase.firestore.SetOptions
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.tasks.await
 import kotlinx.coroutines.withContext
-
+                
 class HomeScreenDataSource {
 
     suspend fun getLatestPost(): Result<List<Post>> {

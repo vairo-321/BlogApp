@@ -38,18 +38,18 @@ class RegisterFragment : Fragment(R.layout.fragment_register) {
 
         binding.btnSignup.setOnClickListener{
 
-            val userName = binding.editTextUserName.text.toString().trim()
+            val completeName = binding.editTextName.text.toString().trim()
             val eMail = binding.editTextEmail.text.toString().trim()
             val password = binding.editTextPassword.text.toString().trim()
             val confirmPassword = binding.editTextConfirmPassword.text.toString().trim()
 
-            if (validateUserData(password, confirmPassword, userName, eMail)) return@setOnClickListener
-            createUser(eMail, password, userName)
+            if (validateUserData(password, confirmPassword, completeName, eMail)) return@setOnClickListener
+            createUser(eMail, password, completeName)
         }
     }
 
-    private fun createUser(eMail: String, password: String, userName: String) {
-        viewModel.signUp(eMail, password, userName).observe(viewLifecycleOwner, Observer {result ->
+    private fun createUser(eMail: String, password: String, completeName: String) {
+        viewModel.signUp(eMail, password, completeName).observe(viewLifecycleOwner, Observer { result ->
             when(result){
                 is Result.Loading -> {
                     binding.progressBar.visibility = View.VISIBLE
@@ -79,7 +79,7 @@ class RegisterFragment : Fragment(R.layout.fragment_register) {
         }
 
         if (userName.isEmpty()) {
-            binding.editTextUserName.error = "User Name is empty"
+            binding.editTextName.error = "User Name is empty"
             return true
         }
 

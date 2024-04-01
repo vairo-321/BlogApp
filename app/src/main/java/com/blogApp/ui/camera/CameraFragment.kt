@@ -64,7 +64,8 @@ class CameraFragment : Fragment(R.layout.fragment_camera) {
                                     Toast.makeText(requireContext(), "Uploading photo...", Toast.LENGTH_LONG).show()
                                 }
                                 is Result.Success -> {
-                                    findNavController().navigate(R.id.action_cameraFragment_to_homeScreenFragment)
+                                    findNavController().popBackStack()
+                                    //findNavController().navigate(R.id.action_cameraFragment_to_homeScreenFragment)
                                 }
                                 is Result.Failure -> {
                                     Toast.makeText(requireContext(), "Error ${result.exception}", Toast.LENGTH_LONG).show()

@@ -6,6 +6,7 @@ import android.view.View
 import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
 import com.blogApp.R
 import com.blogApp.core.Result
 import com.blogApp.core.hide
@@ -29,6 +30,8 @@ class HomeScreenFragment : Fragment(R.layout.fragment_home_screen), OnPostClickL
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentHomeScreenBinding.bind(view)
+
+        //clearStackFragment()
 
         viewModel.fetchLatestPost().observe(viewLifecycleOwner, Observer{result ->
             when(result){
@@ -76,4 +79,11 @@ class HomeScreenFragment : Fragment(R.layout.fragment_home_screen), OnPostClickL
             }
         })
     }
+
+
+    //private fun clearStackFragment(){
+    //    val navController = findNavController()
+
+    //    navController.popBackStack(R.id.homeScreenFragment, false)
+    //}
 }
